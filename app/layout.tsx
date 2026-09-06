@@ -6,15 +6,17 @@ import { ReactNode } from "react";
 
 interface ReactLayoutProps {
   children: ReactNode;
+  modal: ReactNode;
 }
 
-export default function RootLayout({ children }: ReactLayoutProps) {
+export default function RootLayout({ children, modal }: ReactLayoutProps) {
   return (
     <html lang="en">
       <body>
         <TanStackProvider>
           <Header />
           {children}
+          {modal}
           <Footer />
         </TanStackProvider>
       </body>

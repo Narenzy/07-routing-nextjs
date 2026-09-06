@@ -36,7 +36,12 @@ export default function Modal({ children, onClose }: ModalProp) {
       aria-modal="true"
       onClick={handleBackdropClick}
     >
-      <div className={css.modal}>{children}</div>
+      <div className={css.modal}>
+        <button type="button" onClick={onClose}>
+          Back
+        </button>
+        {children}
+      </div>
     </div>,
     document.body,
   );
