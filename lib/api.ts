@@ -13,17 +13,22 @@ export async function fetchNotes(
   page: number = 1,
   perPage: number = 10,
   search?: string,
+  tag?: string,
 ): Promise<NoteResponse> {
   const params: {
     page: number;
     perPage: number;
     search?: string;
+    tag?: string;
   } = {
     page,
     perPage,
   };
   if (search?.trim()) {
     params.search = search.trim();
+  }
+  if (tag?.trim()) {
+    params.tag = tag.trim();
   }
   const res = await axios.get<NoteResponse>("/notes", {
     params,
